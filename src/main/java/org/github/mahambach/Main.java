@@ -44,4 +44,32 @@ public class Main {
         }
         return true;
     }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Methode zum Erstellen eines Arrays der ersten n Primzahlen
+    public static int[] getFirstNPrimes(int n) {
+        int[] primes = new int[n];
+        int count = 0;
+        int num = 2; // Start bei der ersten Primzahl
+
+        while (count < n) {
+            if (isPrime(num)) {
+                primes[count] = num;
+                count++;
+            }
+            num++;
+        }
+        return primes;
+    }
 }
